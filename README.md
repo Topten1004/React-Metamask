@@ -1,21 +1,68 @@
-# Metamask with React App
+# React-truffle-metamask
 
-A simple project to plugin Metamask with a React App for simple Etherium transactions
+This project is design to connect to Ethereum blockchain and interact with MetaMask to send transaction on smart contract.  
 
-1. **yarn** to install dependencies
+## 💡[Document](./DOCUMENT.md)
 
-2. **yarn start** to run project
+### Technical stack
 
-### Important!
+#### Frontend
+- React
+- Redux
+- Saga
+- Web3(MetaMask)
 
-To run this project connecting to a local chain download Ganache utilize chain ID 1337
+#### UI
+- Sass
+- Material-UI
 
-[Download Ganache](https://www.trufflesuite.com/ganache)
+#### Smart contract/Solidity
+- [Truffle](./TRUFFLE.md)
 
-Otherwise in order to show the Account info you'll need to connect the app to a valid Account on the chain ID you are choosing inside the component/wallet/connector.js file.
+#### Database
+- [Bluzelle](./BLUZELLE.md)
 
-To test with a Testnet please visit Infura: [Infura.io](https://infura.io/) and drop your endpoint into the Web3 Provider
+### Install flow
 
----
+#### Clone repo
 
-![Image of Project](/public/images/screen_recording.gif)
+```
+git clone https://github.com/PhyrexTsai/react-truffle-metamask
+cd react-truffle-metamask
+```
+
+#### Install ganache
+
+```
+npm install -g ganache-cli
+```
+
+#### Install truffle
+
+```
+npm install -g truffle
+```
+
+#### Build repo
+
+```
+yarn install
+truffle compile
+```
+
+#### Start repo
+
+Open a new console
+```
+ganache-cli
+```
+
+```
+truffle migrate
+yarn start
+```
+
+## Reference
+
+- ganache-cli: https://github.com/trufflesuite/ganache-cli
+- truffle: https://github.com/trufflesuite/truffle

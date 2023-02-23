@@ -1,25 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import './index.css';
+import AppContainer from './container/AppContainer';
+import configureStore from './store/configureStore';
+import registerServiceWorker from './registerServiceWorker';
 
-import Web3 from 'web3'
-import { Web3ReactProvider } from '@web3-react/core'
-import { MetaMaskProvider } from './hooks/metamask'
+const store = configureStore();
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
-function getLibrary(provider, connector) {
-  return new Web3(provider)
-}
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <MetaMaskProvider>
-        <App />
-      </MetaMaskProvider>
-    </Web3ReactProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Provider store={store}><AppContainer /></Provider>, 
+  document.getElementById('root'));
+registerServiceWorker();
